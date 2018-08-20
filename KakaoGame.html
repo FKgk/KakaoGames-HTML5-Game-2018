@@ -1,0 +1,617 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name = 'viewport' content='user-scalable=no'>
+<meta charset = "UTF-8">
+<Script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></Script>
+<style>
+body,head{margin:0;}
+#background{
+	position : absolute;
+	top : 0px; left : 0px;
+}
+.key{
+	position:absolute;
+	height: :auto;
+	display: none;
+}
+#key0{
+   left : 42.3%;
+   bottom : 24%;
+   width:15%;
+}
+#key1{
+   left : 42.3%;
+   bottom : 3%;
+   width:15%;
+}
+#key2{
+   left : 21.5%;
+   bottom : 14.5%;
+   width:16.7%;
+}
+#key3{
+   left : 61.5%;
+   bottom : 14.5%;
+   width:16.9%;
+}
+#key4{
+   left : 42.8%;
+   bottom : 14.5%;
+   width: 14%;
+}
+
+.command{
+	position:absolute;
+	width: 11%;
+	height: auto;
+}
+@font-face{
+	font-family: 'BMHANNA_11yrs_ttf';
+	src : url('img/BMHANNA_11yrs_ttf.ttf');
+	
+}
+</style>
+<div id = 'whole'>
+<img id = "background" src = "img/background.png"style="width:100%;height:100%;display: none">
+<img id = 'hitelite0' src = 'img/hiteliten.png' style = ' position: absolute;left : 33.5%; bottom : 20%;  height: :auto;'>
+<img id = 'hitelite1' src = 'img/hiteliten.png' style = 'position: absolute; left : 33.5%; bottom : 0%;  height: :auto;'>
+<img id = 'hitelite2' src = 'img/hiteliten.png' style = 'position: absolute; left : 13.5%; bottom : 11%;  height: :auto;'>
+<img id = 'hitelite3' src = 'img/hiteliten.png' style = 'position: absolute; left : 53.5%; bottom : 11%;  height: :auto;'>
+<img id = 'hitelite4' src = 'img/hiteliten.png' style = 'position: absolute; left : 34.5%; bottom : 10%;  height: :auto;'>
+<img class = "key" id = "key0" src = "img/button_n00.png" >
+<img class = "key" id = "key1" src = "img/button_n01.png" >
+<img class = "key" id = "key2" src = "img/button_n02.png" >
+<img class = "key" id = "key3" src = "img/button_n03.png" >
+<img class = "key" id = "key4" src = "img/button_n04.png" >
+
+<h3 id='score_name' style ="margin:0px;font-family: BMHANNA_11yrs_ttf ;position :absolute; top : 7.65%; left:47%;font-size: 22px;display: none;color:white;">score</h3>
+<h3 id = 'score' style ="margin:0px;position :absolute;font-family: BMHANNA_11yrs_ttf ; top : 9%; left:41.5%; text-align:center; display: none;color:white;font-size:70px; width:16%;">0</h3>
+
+<h3 id='combo_name'style ="margin:0px;font-family: BMHANNA_11yrs_ttf ;position :absolute; top : 22.3%; left:46%;font-size: 22px;display: none;color:white;">COMBO</h3>
+<h3 id = 'combo' style ="margin:0px;position :absolute;font-family: BMHANNA_11yrs_ttf ; top : 24.3%; left:41.5%; text-align:center; display: none;color:white;font-size:70px; width:15%;">0</h3>
+
+<img id = 'time' src ="img/time.png" style = "margin:0px;position :absolute;top:60%;display: none; width: 50%; height: 2.5% ;left:7%;">
+<h2 id = 'time_text' style = "display:none;position:absolute; top:59%;text-align:center;color:white;left:48%;font-family: BMHANNA_11yrs_ttf ;font-size: 30px"></h2>
+
+<img class = 'command' src = "img/key0.png" id = "p0"style = "  top:53.3%; left : 9%;">
+<img class = 'command' src = "img/key0.png" id = "p1"style = "  top:45.3%; left :9%;">
+<img class = 'command' src = "img/key0.png" id = "p2"style = "  top:37.8%; left : 9%;">
+<img class = 'command' src = "img/key0.png" id = "p3"style = "  top:30.3%; left : 9%; ">
+<img class = 'command' src = "img/key0.png" id = "p4"style = "  top:22.8%; left : 9%; ">
+<img class = 'command' src = "img/key0.png" id = "p5"style = "  top:15.3%; left : 9%; ">
+<img class = 'command' src = "img/key0.png" id = "p6"style = "  top:15.3%; left : 23%; ">
+<img class = 'command' src = "img/key0.png" id = "p7"style = "  top:15.3%; left : 37%; ">
+<img class = 'command' src = "img/key0.png" id = "p8"style = "  top:15.3%; left : 51%; ">
+<img class = 'command' src = "img/key0.png" id = "p9"style = "  top:15.3%; left : 65%; ">
+<img class = 'command' src = "img/key0.png" id = "p10"style = "  top:15.3%; left : 79%; ">
+<img class = 'command' src = "img/key0.png" id = "p11"style = "  top:22.8%; left : 79%; ">
+<img class = 'command' src = "img/key0.png" id = "p12"style = "  top:30.3%; left : 79%;">
+<img class = 'command' src = "img/key0.png" id = "p13"style = "  top:37.8%; left : 79%; ">
+<img class = 'command' src = "img/key0.png" id = "p14"style = "  top:45.3%; left : 79%; ">
+<img class = 'command' src = "img/key0.png" id = "p15"style = "  top:52.8%; left : 79%; ">
+<img class = 'command' src = "img/key0.png" id = "p16"style = "  top:52.8%; left : 65%; ">
+<img class = 'command' src = "img/key0.png" id = "p17"style = "  top:52.8%; left : 51%; ">
+<img class = 'command' src = "img/key0.png" id = "p18"style = "  top:52.8%; left : 37%; ">
+<img class = 'command' src = "img/key0.png" id = "p19"style = "  top:52.8%; left : 23%; ">
+<img id= 'character' src = 'img/charactern0.png' style = "position: absolute; display: none; left:34.2%; top:30%;width:28%;height:auto;">
+<img id= 'fever' src = 'img/fever.png' style = 'position: absolute;display: none;left: 20%;top:20%;'>
+<img src="img/edge0.png" id="edge" style="display:none;position: absolute;  left: 0%; top: 0%; width:21%;">
+
+<img id = 'item_background' src = "img/item_background0.png"style = "position: absolute ;top:0%;display: none;width:100%;height:100%; ">
+
+<img id = "start"src = "img/start0.png" style = "position : absolute; display:none;left:23.5%;bottom:4.75%;width:53%;height: auto">
+
+<img id = "get_item"src = "img/get_gift0.png" style = "position : absolute; left:40%;bottom:24.3%;width:20.5%; display: none;">
+
+<audio id = 'audio_timeOver' src = 'audio/timeOver.mp3' autoplay="false" volume="0.5"></audio>
+<audio id = 'audio_wrongAnswer' src = 'audio/wrongAnswer.wav' autoplay="false" volume="0.5"></audio>
+
+<img id = 'last_count' src = 'img/last_count.png' style="display: none;position:absolute;left:60%; top:67%; width:15%;height: auto;">
+<h2 id = 'last_count_text' style = "display: none;position:absolute;left:65.3%;top:66%;font-size: 72px;font-family: BMHANNA_11yrs_ttf ;"></h2>
+<img id ='game_over' src = 'img/game_over.png' style = 'position:absolute; display: none;left:0%;top:0%;width: 100%;height: 100%;'>
+<img id = 'main_page' src= 'img/main.png' style = 'position:absolute; top:0%;width: 100%;height : 100%; display: block;'>
+<img id ='gameover_page' src = 'img/gameover.png' style = 'position:absolute;top:0%;width:100%;height: 100%;display: none;'>
+<img id = 'main_button' src = 'img/mainbutton.png' style = 'position:absolute;left:13%;top:65%;display: none;'>
+<h3 id = 'gameover_score' style = 'position:absolute;left:30%;top:7%;width:43%;text-align:center;display: none;font-size: 130px;color:white;'></h3>
+<audio id = 'background_bgm0' src = 'audio/bgmn.wav' autoplay='false' volume="0.5"></audio>
+<audio id = 'background_bgm1' src = 'audio/bgmf.wav' autoplay='false' volume="0.5"></audio>
+<audio id = 'other_button_sound' src = 'audio/other_button_sound.ogg' autoplay="false"type="audio/ogg" volume="0.5"></audio>
+</div>
+
+</head>
+<body>
+	<script type="text/javascript">
+		let background_bgm0 = document.getElementById('background_bgm0');
+		let background_bgm1 = document.getElementById('background_bgm1');
+		let time = document.getElementById('time');
+		let score_tag = document.getElementById('score');
+		let background = document.getElementById('background');
+		let start = document.getElementById('start');
+		let combo = document.getElementById('combo');
+		let main_page = document.getElementById('main_page');
+		let gameover_page = document.getElementById('gameover_page');
+		let combo_name = document.getElementById('combo_name');
+		let key = [ 0, 1, 2, 3, 4 ]; //상하좌우 가운데
+		let problem = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
+		let problem_number; 
+		let state = -1; //0 플레이 끝 , 1 플레이 중
+		let score = 0;
+		let startTime = 0;
+		let plus_score = 100;
+		let combo_score = 0;
+		let game_stair = 0;
+		let problem_count = 5;
+		let item_number = 0; // 0아무것도 없음 1 같은 거 15개 2 시작 부터 피버 3 시간 증가 4 실수 방어
+		let edge = document.getElementById('edge');
+		let problem_tag = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
+		let temp = 0;
+
+		let button_fibo = 'n';
+		let item_background = document.getElementById('item_background');
+		let get_item = document.getElementById('get_item');
+		let get_item_number = 0;
+
+		let character = document.getElementById('character');
+		let num = 0;
+		let reget_item = '';
+
+		let audio_lastTime = new Audio('audio/lastTime.mp3');
+
+		let audio_timeOver = document.getElementById('audio_timeOver');
+		let audio_wrongAnswer = document.getElementById('audio_wrongAnswer');
+		let audio_time = 0;
+
+		let cnt = 600;
+		let last_count = document.getElementById('last_count');
+		let last_count_text = document.getElementById('last_count_text');
+		let time_text = document.getElementById('time_text');
+		let fibo_time;
+		let game_over = document.getElementById('game_over');
+		let main_button = document.getElementById('main_button');
+		let gameover_score = document.getElementById('gameover_score');
+		let edge_number = 0;
+		let hite_number = [0,1,2,3,4];
+		let score_name = document.getElementById('score_name');
+		let fever = document.getElementById('fever');
+
+		let other_button_sound = document.getElementById('other_button_sound');
+		let character_size = [['28%','28%','28%','28%','23%'],['25%','23.5%','28%','27.5%','23.5%']];
+		let character_position = [['34.2%','36.7%','36.15%','34.86%','39.3%'],['36.658%','37.12%','36.15%','34%','39%']];
+//////////////////////////////////////////////////////////////////////
+		let button_position = { left : [['42.3%','42.3%','21.5%','61.5%','42.8%'],['37.72%','37.6%','17%','57.15%','38.7%']],
+			bottom:[['24%','3%','14.5%','14.5%','14.5%',],['21.15%','0%','11.5%','11%','11.5%']]};
+		let button_size = [['15%','15%','16.7%','16.9%','14%'],['25%','25%','25%','26.5%','23.2%'],];
+
+		for(let i =0; i < 20; i++)
+		{
+			problem_tag[i] = document.getElementById('p'+i);
+			$('#p'+i).fadeOut(0);
+		}
+		for(let i =0; i< 5; i++) // 버튼 클릭 이벤트 설정
+		{
+			hite_number[i] = document.getElementById('hitelite'+i);
+		}
+		function openBox_audio_play(){
+			let a = new Audio('audio/openBox.mp3');
+			a.volume = 0.5;
+			a.play();
+		}
+		function button_sound_play(){
+			let button_sounds = new Audio('audio/button_sound.wav');
+			button_sounds.volume = 0.5;
+			button_sounds.play();
+		}
+		function get_rand_problem() // 커맨드 생성 함수
+		{
+			//item_number = 1;
+			if(item_number == 1)
+			{
+				temp = 0;
+				for(let i = 0; i < 15; i++)
+				{
+					problem[i] =  4;//0~4
+					problem_tag[i].src = "img/key" + problem[i] +".png";
+					$( '#p' + i).animate({'width':'11%'},0);
+					$( '#p' + i).fadeIn(0);
+				}
+
+				problem_number = 14; // 5 0 ~ 4
+				item_number = 0;
+			}
+			else
+			{
+				temp = Math.floor(Math.random() * (20 - problem_count));
+				for(let i = 0; i < problem_count; i++)
+				{
+					problem[i] = Math.floor(Math.random() * 5);//0~4
+					problem_tag[(i+temp) ].src = "img/key" + problem[i] +".png";
+					$( '#p' + ( i + temp) ).fadeIn(0);
+					/*$( '#p' + (i+temp) ).fadeIn(0);*/
+				}
+				problem_number = problem_count - 1; // 5 0 ~ 4
+			}
+			
+		}
+		// 메인 페이지 클릭 시
+		main_page.addEventListener('touchstart',function(){
+			other_button_sound.play();
+			main_page.style.display = 'none';
+			item_background.src = 'img/item_background0.png';
+			item_background.style.display = 'block';
+			start.style.display = 'block'
+			get_item.style.display = 'block';
+		});
+		main_button.addEventListener('touchstart',function(){
+			other_button_sound.play();
+			main_page.style.display = 'block';
+			main_button.style.display = 'none';
+			gameover_page.style.display = 'none';
+			gameover_score.style.display = 'none';
+			cnt = 600;
+		})
+		
+		for(let i =0; i< 5; i++) // 버튼 클릭 이벤트 설정
+			{
+				
+				hite_number[i] = document.getElementById('hitelite'+i);
+				$('#hitelite'+i).fadeOut(0,'linear');
+				key[i] = document.getElementById('key' + i);
+				key[i].addEventListener('touchstart', function()
+				{
+					//(new Audio('audio/button_sound.wav')).play();
+					//button_sound.play();
+					button_sound_play();
+					key[i].src = 'img/button_'+button_fibo+'1'+i+'.png';
+					fibo_time = (new Date()).getTime();
+					if(problem[problem_number] == i) // 정답일 경우
+					{
+						$('#p'+ (problem_number+temp) ).animate({'left':(parseInt(problem_tag[problem_number + temp].style.left)-0.5)+'%', 'top': (parseInt(problem_tag[problem_number + temp].style.top)-0.5)+'%', 'width':'13%'},200).fadeOut(200,'linear'); // 점점 커지게 사라지게
+						$('#hitelite'+i).fadeIn(150,'linear').fadeOut(150,'linear');
+						$('#p'+ (problem_number+temp) ).animate({'left':(parseInt(problem_tag[problem_number + temp].style.left)+0.5)+'%', 'top': (parseInt(problem_tag[problem_number + temp].style.top)+0.5)+'%', 'width':'11%'},0);
+						if(button_fibo == 'n')
+						{
+							character.style.left = character_position[0][i];
+							character.style.width = character_size[0][i];
+						}
+						else
+						{
+							character.style.left = character_position[1][i];
+							character.style.width = character_size[1][i];
+						}	
+						character.src = 'img/character'+button_fibo+i+'.png';
+						score += plus_score; // 점수 combo+1 만큼 증가
+						score_tag.innerText = score; // 점수 표현
+								
+						problem_number--; // 커맨드 번호 감소
+						if(problem_number < 0) // 커맨드를 다 입력 했을 경우
+						{
+							score_tag.innerText = score;
+							game_stair++;
+							if(game_stair % 2 == 0 && problem_count < 8)
+							{
+								problem_count++;
+							}
+							get_rand_problem();
+						}
+						combo_score++;
+						combo.innerText = combo_score;
+								
+						if(combo_score == 20 && button_fibo == 'n') // 피버 구현
+						{
+							fever.style.display = 'block';
+							setTimeout(function()
+							{
+								fever.style.display = 'none';
+							},1000);
+							plus_score = 150;
+							background.src = "img/background1.png";
+							button_fibo = 'f';
+							for(let i = 0; i < 5; i++)
+							{
+								key[i].src = 'img/button_'+button_fibo+'0'+i+'.png';
+								key[i].style.left = button_position.left[1][i];
+								key[i].style.bottom = button_position.bottom[1][i];
+								key[i].style.width = button_size[1][i];
+								hite_number[i].src = 'img/hitelite'+button_fibo+'.png';
+							}
+						}
+					}
+
+					else // 틀렸을 경우
+					{
+						$('#whole').append("<img id = 'wrong_answer' src = 'img/wrong_answer.png' style = 'position:absolute;width:11%;height:auto;left:"+problem_tag[problem_number + temp].style.left+"; top:"+problem_tag[problem_number + temp].style.top+";'>");
+						setTimeout(function(){
+							$('#wrong_answer').remove();
+						}, 300);
+
+						audio_wrongAnswer.play();
+						if(item_number==4)
+						{
+							item_number = 0;
+						}
+						else
+						{
+								cnt -= 50;
+							}
+							combo_score = 0;
+							combo.innerText= combo_score;
+							if(button_fibo == 'f')
+							{
+								button_fibo = 'n';
+								plus_score = 100;
+								background.src = "img/background.png";
+							for(let i = 0; i < 5; i++)
+							{
+								key[i].src = 'img/button_'+button_fibo+'0'+i+'.png';
+								key[i].style.left = button_position.left[0][i];
+								key[i].style.bottom = button_position.bottom[0][i];
+								key[i].style.width = button_size[0][i];
+								hite_number[i].src = 'img/hitelite'+button_fibo+'.png';
+							}
+						}
+					}		
+				});
+				key[i].addEventListener('touchend', function(){
+					key[i].src = 'img/button_'+ button_fibo + '0' + i + '.png';
+				});
+			}
+		//시작 이미지 클릭
+
+		
+		//광고 이미지 클릭 
+		get_item.addEventListener('touchstart',function(){
+				other_button_sound.play();
+				//(new Audio('audio/openBox.mp3')).play();
+				openBox_audio_play();
+				setTimeout(function(){
+					item_number = Math.floor(Math.random() * 4)+1;
+					item_background.src = 'img/item_background' + item_number + '.png';
+				},500);
+				get_item_number = (get_item_number+1)%2;
+				get_item.src = 'img/'+reget_item+'get_gift'+get_item_number+'.png';
+				item_background.src = 'img/item_background0.png';
+				
+		});
+
+		get_item.addEventListener('touchend',function(){
+			get_item_number = (get_item_number+1)%2;
+			get_item.src = 'img/'+reget_item+'get_gift'+get_item_number+'.png';
+			if(reget_item == '')
+			{
+				reget_item = 're';
+				get_item.src = 'img/'+reget_item+'get_gift'+get_item_number+'.png';
+			}
+		});
+
+
+
+		start.addEventListener('touchstart',function(){
+			start.src = 'img/start1.png';
+			audio_lastTime.currentTime = 0;
+			other_button_sound.play();
+		});
+
+		start.addEventListener('touchend',function(){
+			start.src = 'img/start0.png';
+			get_item_number = 0;
+			get_item.src = 'img/get_gift'+get_item_number+'.png';
+			
+			item_background.style.display = 'none';
+
+			get_item.style.display = 'none';
+
+			start.style.display = 'none';
+			background.style.display = 'block'
+			for(let i = 0; i<5; i++)
+			{
+				key[i].style.display = 'block';
+			}
+			character.style.display = 'block';
+			time.style.display = 'block';
+			time_text.style.display = 'block';
+			score_name.style.display = 'block';
+			score_tag.style.display = 'block';
+			combo.style.display = 'block';
+			combo_name.style.display = 'block';
+
+			score = 0;
+			combo_score = 0;
+			game_stair = 0;
+			problem_count = 5;
+			score_tag.innerText = score;
+			combo.innerText = combo_score;
+			if(item_number == 2) // 시작 부터 피버
+			{
+				plus_score = 150;
+				background.src = "img/background1.png";
+				item_number = 0;
+				button_fibo = 'f';
+				setTimeout(function()
+				{
+					fever.style.display = 'none';
+
+				},1000);
+				for(let i = 0; i < 5; i++)
+				{
+					key[i].src = 'img/button_'+button_fibo+'0'+i+'.png';
+					key[i].style.left = button_position.left[1][i];
+					key[i].style.bottom = button_position.bottom[1][i];
+					key[i].style.width = button_size[1][i];
+					hite_number[i].src = 'img/hitelite'+button_fibo+'.png';
+
+				}
+				fever.style.display = 'block';
+			}
+			else
+			{
+				plus_score = 100;
+				background.src = "img/background.png";
+			}
+			
+			character.style.display = 'block';
+			state = 1; // 게임 가능 상태로 만들기
+			get_rand_problem(); // 커맨드 생성
+			time_text.style.display = 'block';
+			edge.style.display = 'block';
+			fibo_time = (new Date()).getTime();
+			
+		});
+
+		//게임중 계속 신경써야 할 것들  시간 측정
+		setInterval(function()
+		{
+			if(state == 1)
+			{
+
+				if(button_fibo == 'n')
+				{
+					background_bgm1.pause();
+					background_bgm0.play();
+				}
+				else
+				{
+					background_bgm0.pause();
+					background_bgm1.play();
+				}
+				cnt--;
+				time_text.innerText = parseInt(cnt/10);
+
+				let t = cnt / 600 * 85;
+				//100이 10초  new Date() 가 1000이 10초
+				time.style.width = t + "%";
+
+				if(cnt < 60 && last_count.style.display == 'none') // 50초 남았을 때
+				{
+					audio_lastTime.play();
+					last_count.style.display='block';
+					last_count_text.style.display = 'block';
+					let time_text1 = setInterval(function(){
+						if(cnt < 5)
+							clearInterval(time_text1);
+						else
+							last_count_text.innerText = parseInt(cnt/10);
+					},200);
+				}
+				else if(cnt <= 0)
+				{
+					
+					if(item_number == 3)
+					{
+						audio_lastTime.currentTime = 0;
+						audio_lastTime.play();
+						cnt += 50;
+						item_number = 0;
+						let time_text1 = setInterval(function(){
+						if(cnt < 5)
+							clearInterval(time_text1);
+						else
+							last_count_text.innerText = parseInt(cnt/10);
+					},200);
+					}
+					else
+					{
+						audio_lastTime.pause();
+						audio_timeOver.play();
+						game_over.style.display = 'block';
+						state = 0;
+						setTimeout(function()
+						{
+							gameover_page.style.display = 'block';
+							gameover_score.innerText = score;
+							game_over.style.display = 'none';
+							main_button.style.display='block';
+							gameover_score.style.display='block';
+							last_count.style.display = 'none';
+							last_count_text.style.display = 'none';
+							for(let i = 0; i<5; i++)
+							{
+								key[i].style.display = 'block';
+							}
+							background.style.display = 'none';	
+							character.style.display = 'none';
+							time.style.display = 'none';
+							time_text.style.display = 'none';
+							score_name.style.display = 'none';
+							score_tag.style.display = 'none';
+							combo.style.display = 'none';
+							combo_name.style.display = 'none';
+						},2500);
+
+						while(problem_number >= 0)
+						{
+							$('#p'+(problem_number+temp)).fadeOut(0,'linear'); // 사라지게
+							problem_number--; // 커맨드 번호 감
+						}
+						if(button_fibo == 'f')
+						{
+							button_fibo = 'n';
+							for(let i = 0; i< 5; i++)
+							{
+								key[i].src = 'img/button_n'+ 0 + i +'.png';
+								key[i].style.left = button_position.left[0][i];
+								key[i].style.bottom = button_position.bottom[0][i];
+								key[i].style.width = button_size[0][i];
+								hite_number[i].src = 'img/hitelite'+button_fibo+'.png';
+							}
+						}
+						character.src = 'img/charactern0.png';
+						
+					}
+				}
+				
+				let fibo_check = (new Date()).getTime() - fibo_time;
+				if( fibo_check >= 1400)
+				{
+					if(button_fibo == 'f')
+					{
+						button_fibo = 'n';
+						background.src = "img/background.png";
+						for(let i = 0; i < 5; i++)
+						{
+							key[i].src = 'img/button_'+button_fibo+'0'+i+'.png';
+							key[i].style.left = button_position.left[0][i];
+							key[i].style.bottom = button_position.bottom[0][i];
+							key[i].style.width = button_size[0][i];
+							hite_number[i].src = 'img/hitelite'+button_fibo+'.png';
+						}
+						plus_score = 100;
+
+					}
+					else
+					{
+						combo_score = 0;
+						combo.innerText = combo_score;	
+					}
+				}
+
+			}
+			else
+			{
+
+				background_bgm0.pause();
+				background_bgm1.pause();
+			}
+		},100);
+
+		let edge_control = setInterval(function(){
+			if(state == 1)
+			{
+				edge_number = (edge_number + 1) % 2;
+				
+				if(edge_number == 0)
+				{
+					edge.style.left =(parseInt(problem_tag[problem_number + temp].style.left) - 4.8)+'%';
+					edge.style.top = (parseInt(problem_tag[problem_number + temp].style.top) - 2.5)+'%';
+				}
+				else
+				{
+					edge.style.left =(parseInt(problem_tag[problem_number + temp].style.left) - 4.5)+'%';
+					edge.style.top = (parseInt(problem_tag[problem_number + temp].style.top) - 2.5)+'%';
+				}
+				edge.src = 'img/edge'+edge_number+'.png';
+			}
+		},300);
+	</script>
+</body>
+</html>
