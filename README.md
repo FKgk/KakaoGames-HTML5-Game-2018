@@ -1,4 +1,8 @@
 # KakaoGames-HTML5-Game-2018
+실행 URL: 
+https://fkgk.github.io/KakaoGames-HTML5-Game-2018/KakaoGame.html
+http://rhkd324.dothome.co.kr/KakaoGame.html
+
 카카오 게임 공모전에 제출한 게임입니다.
 3명이서 개발한 작품입니다. 현재 코드는 너무 좋지않아서 추후 보완하겠습니다.
 처음 배경화면을 누르면 아이템 뽑기 창으로 넘어갑니다.
