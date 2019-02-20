@@ -1,7 +1,8 @@
 # 제 1회 카카오게임 공모전 : HTML5 스낵게임 부문
 ## 눌러눌러 고양이
 URL: https://fkgk.github.io/KakaoGames-HTML5-Game-2018/KakaoGame.html <br>
-video : https://youtu.be/p4b_Sv9XK0M
+video : https://youtu.be/p4b_Sv9XK0M <br>
+(터치로만 인식이 됩니다.)
 
 ![Alt text](/playFlow.png)
 
