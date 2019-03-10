@@ -68,3 +68,7 @@ video : https://youtu.be/p4b_Sv9XK0M <br>
       </li>
     </ol>
 </ol>
+
+개발 기간 : 2018-07-19 ~ 2018-08-07 (20일)
+개발 인원 : 3명(디자이너 1, 기획자 1, 개발자 1)
+사용 도구 : Javascript, HTML, CSS
